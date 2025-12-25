@@ -449,3 +449,30 @@ tornado.websocket.WebSocketClosedError
 2025-12-25 09:24:24,225 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
 2025-12-25 09:24:24,234 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
 2025-12-25 09:24:24,237 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 09:33:07,517 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 09:33:07,548 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 09:33:07,557 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 09:33:07,559 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 09:33:19,181 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-25 09:33:19,212 - __main__ - ERROR - Error loading model or making prediction: columns are missing: {'AveOccup', 'AveRooms', 'HouseAge', 'Population', 'AveBedrms', 'Longitude', 'BedroomRatio', 'RoomsPerHousehold', 'MedInc', 'Latitude', 'PopulationPerHousehold'}
+2025-12-25 09:47:25,540 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 09:47:25,569 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 09:47:25,576 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 09:47:25,577 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 09:47:33,147 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-25 09:47:33,177 - __main__ - ERROR - Error loading model or making prediction: columns are missing: {'AveOccup', 'AveRooms', 'HouseAge', 'Population', 'AveBedrms', 'Longitude', 'BedroomRatio', 'RoomsPerHousehold', 'MedInc', 'Latitude', 'PopulationPerHousehold'}
+2025-12-25 09:47:42,059 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 09:47:42,088 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 09:47:42,096 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 09:47:42,098 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 09:47:47,366 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-25 09:47:47,435 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 09:47:47,466 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 09:47:47,473 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 09:47:47,475 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 09:48:20,623 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 09:48:20,651 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 09:48:20,660 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 09:48:20,662 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 09:48:26,956 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-25 09:48:26,988 - __main__ - ERROR - Error loading model or making prediction: columns are missing: {'AveOccup', 'AveRooms', 'HouseAge', 'Population', 'AveBedrms', 'Longitude', 'BedroomRatio', 'RoomsPerHousehold', 'MedInc', 'Latitude', 'PopulationPerHousehold'}

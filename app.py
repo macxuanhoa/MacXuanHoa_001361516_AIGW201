@@ -6,6 +6,8 @@ import os
 import sys
 import time
 import uuid
+import joblib
+import pandas as pd
 from datetime import datetime
 from typing import Dict, List, Any, Optional, Union, Tuple
 from dotenv import load_dotenv
@@ -317,12 +319,62 @@ def display_chat_messages():
             st.markdown(message["content"], unsafe_allow_html=True)
 
 
-def handle_house_price_prediction(prompt: str) -> bool:
+def predict_house_price(area: float, bedrooms: int, bathrooms: int, 
+                       floors: int = 1, stories: int = 1, 
+                       parking: int = 1, location: str = 'Suburbs') -> dict:
     """
-    This function is kept for compatibility but always returns False
-    as we've disabled the house price prediction feature.
+    Predict house price based on input parameters
+    
+    Args:
+        area: Area in square meters (m²)
+        bedrooms: Number of bedrooms
+        bathrooms: Number of bathrooms
+        floors: Number of floors (default: 1)
+        stories: Number of stories (default: 1)
+        parking: Number of parking spaces (default: 1)
+        location: Property location (default: 'Suburbs')
+        
+    Returns:
+        dict: Prediction result and related information
     """
-    return False
+    try:
+        # Path to model and preprocessor
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        preprocessor_path = os.path.join(script_dir, 'models', 'preprocessor.joblib')
+        model_path = os.path.join(script_dir, 'models', 'house_price_model.joblib')
+        
+        # Load model and preprocessor
+        preprocessor = joblib.load(preprocessor_path)
+        model = joblib.load(model_path)
+        
+        # Prepare input data
+        input_data = {
+            'area': [area],
+            'bedrooms': [bedrooms],
+            'bathrooms': [bathrooms],
+            'floors': [floors],
+            'stories': [stories],
+            'parking': [parking],
+            'location': [location]
+        }
+        
+        # Preprocess and predict
+        input_df = pd.DataFrame(input_data)
+        X_processed = preprocessor.transform(input_df)
+        predicted_price = model.predict(X_processed)[0]
+        
+        return {
+            'success': True,
+            'price': int(predicted_price),
+            'features': input_data
+        }
+        
+    except Exception as e:
+        logger.error(f"Error predicting house price: {str(e)}")
+        return {
+            'success': False,
+            'error': str(e)
+        }
 
 
 def handle_chat_message(prompt: str) -> None:
@@ -401,7 +453,7 @@ def handle_chat_message(prompt: str) -> None:
         # Display the response in the assistant's message
         message_placeholder.markdown(full_response)
         
-        # Check if this is a function call by looking for JSON in the respon        se
+        # Check if this is a function call by looking for JSON in the response
         import json
         import re
         
@@ -434,73 +486,44 @@ def handle_chat_message(prompt: str) -> None:
                 args = response_data.get('args', {})
                 st.sidebar.info(f"🛠️ Calling Tool: predict_house_price({args})")
                 
-                # Extract parameters with defaults
-                area = args.get('area', 0)
-                bedrooms = args.get('bedrooms', 0)
-                bathrooms = args.get('bathrooms', 0)
-                floors = args.get('floors', 1)
-                stories = args.get('stories', 1)
-                parking = args.get('parking', 1)
-                location = args.get('location', 'Suburbs')
+                # Call the prediction function
+                prediction = predict_house_price(
+                    area=args.get('area', 0),
+                    bedrooms=args.get('bedrooms', 0),
+                    bathrooms=args.get('bathrooms', 0),
+                    floors=args.get('floors', 1),
+                    stories=args.get('stories', 1),
+                    parking=args.get('parking', 1),
+                    location=args.get('location', 'Suburbs')
+                )
                 
-                # Load the preprocessor and model
-                import joblib
-                import os
-                import numpy as np
-                
-                try:
-                    # Get the directory of the current script
-                    script_dir = os.path.dirname(os.path.abspath(__file__))
-                    
-                    # Load the preprocessor and model
-                    preprocessor_path = os.path.join(script_dir, 'models', 'preprocessor.joblib')
-                    model_path = os.path.join(script_dir, 'models', 'house_price_model.joblib')
-                    
-                    preprocessor = joblib.load(preprocessor_path)
-                    model = joblib.load(model_path)
-                    
-                    # Create input features array
-                    input_data = {
-                        'area': [area],
-                        'bedrooms': [bedrooms],
-                        'bathrooms': [bathrooms],
-                        'floors': [floors],
-                        'stories': [stories],
-                        'parking': [parking],
-                        'location': [location]
-                    }
-                    
-                    # Convert to DataFrame for preprocessing
-                    import pandas as pd
-                    input_df = pd.DataFrame(input_data)
-                    
-                    # Preprocess the input data
-                    X_processed = preprocessor.transform(input_df)
-                    
-                    # Make prediction
-                    predicted_price = model.predict(X_processed)
-                    final_price = int(predicted_price[0])
-                    
-                except Exception as e:
-                    logger.error(f"Error loading model or making prediction: {str(e)}")
-                    # Fall back to a simple calculation if model fails
+                # Process the prediction result
+                if prediction['success']:
+                    features = prediction['features']
+                    formatted_response = f"""## 🏠 Dự đoán giá nhà (Mô hình ML)
+- **Vị trí**: {features['location'][0].capitalize()}
+- **Diện tích**: {features['area'][0]} m²
+- **Phòng ngủ**: {features['bedrooms'][0]}
+- **Phòng tắm**: {features['bathrooms'][0]}
+- **Tầng**: {features['floors'][0]}
+- **Lầu**: {features['stories'][0]}
+- **Chỗ đỗ xe**: {features['parking'][0]} {'chỗ' if features['parking'][0] > 1 else 'chỗ'}
+### Giá dự đoán: **${prediction['price']:,}**"""
+                else:
+                    # Fallback calculation if prediction fails
+                    area = args.get('area', 0)
+                    bedrooms = args.get('bedrooms', 0)
+                    bathrooms = args.get('bathrooms', 0)
+                    floors = args.get('floors', 1)
                     final_price = int((area * 150) + (bedrooms * 10000) + (bathrooms * 5000) + ((floors - 1) * 20000))
-                
-                # Create a detailed response
-                response_parts = [
-                    f"## 🏠 House Price Estimate (ML Model)\n",
-                    f"- **Location**: {location.capitalize()}",
-                    f"- **Area**: {area} sqft",
-                    f"- **Bedrooms**: {bedrooms}",
-                    f"- **Bathrooms**: {bathrooms}",
-                    f"- **Floors**: {floors}",
-                    f"- **Stories**: {stories}",
-                    f"- **Parking**: {parking} space{'s' if parking != 1 else ''}\n",
-                    f"### Estimated Price: **${final_price:,}**"
-                ]
-                
-                # Format the final response
-                formatted_response = "\n".join(response_parts)
+                    
+                    formatted_response = f"""## ⚠️ Dự đoán giá nhà (Công thức dự phòng)
+- **Lưu ý**: Sử dụng công thức ước tính do lỗi tải mô hình
+- **Diện tích**: {area} m²
+- **Phòng ngủ**: {bedrooms}
+- **Phòng tắm**: {bathrooms}
+- **Tầng**: {floors}
+### Giá ước tính: **${final_price:,}**"""
                 
                 # Display the response
                 message_placeholder.markdown(formatted_response)
