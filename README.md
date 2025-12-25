@@ -83,11 +83,24 @@ AI Real Estate Assistant is a Minimum Viable Product (MVP) that combines the pow
   - Latitude: Block group latitude
   - Longitude: Block group longitude
 
-### Model Performance
+### Model Configuration & Performance
 - **Algorithm**: Random Forest Regressor
-- **R² Score**: ~0.74
-- **Mean Absolute Error (MAE)**: ~0.32
+- **Hyperparameters**:
+  - `n_estimators`: 100
+  - `max_depth`: 10
+  - `random_state`: 42
+- **Performance Metrics**:
+  - **R² Score**: 0.7439
+  - **MAE**: 0.3245
+  - **RMSE**: 0.4630
 - **Model Location**: `models/house_price_model.joblib`
+
+### 🔄 Data Pipeline
+The system processes raw data through a rigorous pipeline:
+1. **Data Cleaning**: Handling missing values and outliers.
+2. **Feature Engineering**: Creating derived features like `Rooms_per_Household`.
+3. **Preprocessing**: Scaling numerical features using StandardScaler.
+4. **Training**: Fitting the Random Forest model on processed data.
 
 ## 📁 Project Structure
 ```
