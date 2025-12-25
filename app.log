@@ -476,3 +476,15 @@ tornado.websocket.WebSocketClosedError
 2025-12-25 09:48:20,662 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
 2025-12-25 09:48:26,956 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
 2025-12-25 09:48:26,988 - __main__ - ERROR - Error loading model or making prediction: columns are missing: {'AveOccup', 'AveRooms', 'HouseAge', 'Population', 'AveBedrms', 'Longitude', 'BedroomRatio', 'RoomsPerHousehold', 'MedInc', 'Latitude', 'PopulationPerHousehold'}
+2025-12-25 10:08:36,655 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:08:37,060 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:08:42,891 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:08:43,683 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:08:43,686 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:08:43,854 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:08:43,861 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:08:43,864 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:30:35,056 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:30:35,951 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:30:35,960 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:30:35,963 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
