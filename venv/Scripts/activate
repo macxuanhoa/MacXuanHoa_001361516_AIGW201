@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Admin\Downloads\New folder\venv"
+VIRTUAL_ENV="C:\Users\Admin\Downloads\MACXUANHOA_GCD220422_AIGW201\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

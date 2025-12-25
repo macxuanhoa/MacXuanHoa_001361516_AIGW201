@@ -488,3 +488,56 @@ tornado.websocket.WebSocketClosedError
 2025-12-25 10:30:35,951 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
 2025-12-25 10:30:35,960 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
 2025-12-25 10:30:35,963 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:39:17,272 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:39:18,419 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:39:18,426 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:39:18,428 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:40:11,799 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:40:12,451 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:40:12,458 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:40:12,460 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:40:24,681 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:40:24,710 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:40:24,719 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:40:24,721 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:40:31,644 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-25 10:40:31,706 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:40:31,739 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:40:31,747 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:40:31,749 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:40:56,062 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:40:56,095 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:40:56,101 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:40:56,103 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:41:02,319 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-25 10:41:02,381 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:02,413 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:41:02,419 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:02,422 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:41:11,314 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:11,346 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:41:11,353 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:11,355 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:41:18,391 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-25 10:41:18,428 - __main__ - ERROR - Error predicting house price: columns are missing: {'Latitude', 'MedInc', 'Population', 'RoomsPerHousehold', 'HouseAge', 'AveOccup', 'BedroomRatio', 'AveRooms', 'Longitude', 'PopulationPerHousehold', 'AveBedrms'}
+2025-12-25 10:41:29,935 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:29,968 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:41:30,064 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:30,096 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:41:30,103 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:30,105 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:41:30,923 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:30,955 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:41:30,962 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:30,964 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:41:37,437 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:37,467 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:41:37,473 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:37,475 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:41:40,608 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:40,679 - ml_tools - WARNING - Could not load model metrics: 'RandomForestRegressor' object has no attribute 'oob_score_'
+2025-12-25 10:41:40,696 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2025-12-25 10:41:40,698 - components.sidebar - WARNING - Could not load chat history: 'MongoDBManager' object has no attribute 'get_chat_sessions'
+2025-12-25 10:41:43,135 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-25 10:41:48,860 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-12-25 10:41:48,892 - __main__ - ERROR - Error predicting house price: columns are missing: {'Latitude', 'MedInc', 'Population', 'RoomsPerHousehold', 'HouseAge', 'AveOccup', 'BedroomRatio', 'AveRooms', 'Longitude', 'PopulationPerHousehold', 'AveBedrms'}

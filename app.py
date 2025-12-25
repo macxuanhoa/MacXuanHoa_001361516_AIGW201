@@ -515,15 +515,33 @@ def handle_chat_message(prompt: str) -> None:
                     bedrooms = args.get('bedrooms', 0)
                     bathrooms = args.get('bathrooms', 0)
                     floors = args.get('floors', 1)
-                    final_price = int((area * 150) + (bedrooms * 10000) + (bathrooms * 5000) + ((floors - 1) * 20000))
+                    # Improved fallback formula with more realistic price estimation
+                    base_price_per_sqm = 200  # Base price per square meter
+                    bedroom_value = 25000     # Value per bedroom
+                    bathroom_value = 15000    # Value per bathroom
+                    floor_bonus = 0.05        # 5% bonus per floor above ground
                     
-                    formatted_response = f"""## ⚠️ Dự đoán giá nhà (Công thức dự phòng)
-- **Lưu ý**: Sử dụng công thức ước tính do lỗi tải mô hình
-- **Diện tích**: {area} m²
-- **Phòng ngủ**: {bedrooms}
-- **Phòng tắm**: {bathrooms}
-- **Tầng**: {floors}
-### Giá ước tính: **${final_price:,}**"""
+                    # Calculate base price
+                    base_price = area * base_price_per_sqm
+                    
+                    # Add value for bedrooms and bathrooms
+                    total_price = base_price + (bedrooms * bedroom_value) + (bathrooms * bathroom_value)
+                    
+                    # Add floor bonus (5% per floor above ground)
+                    if floors > 1:
+                        total_price *= (1 + (floors - 1) * floor_bonus)
+                    
+                    final_price = int(total_price)
+                    
+                    formatted_response = f"""## ⚠️ House Price Estimation (Fallback Method)
+- **Note**: Using fallback formula as the ML model could not be loaded
+- **Area**: {area} m²
+- **Bedrooms**: {bedrooms}
+- **Bathrooms**: {bathrooms}
+- **Floors**: {floors}
+- **Estimated Price**: ${final_price:,}
+
+*Note: This is an estimated price using a fallback formula. The actual price may vary based on location, market conditions, and other factors.*"""
                 
                 # Display the response
                 message_placeholder.markdown(formatted_response)
